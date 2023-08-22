@@ -30,7 +30,7 @@ def main():
                 client_socket.close()
 
         except (ConnectionError, ConnectionAbortedError, ConnectionResetError):
-            print("Connection to the server lost. Reconnecting...")
+            print("Connection to the server lost. Trying Reconnecting...")
             try:
                 time.sleep(2)  # Wait for a short period before attempting to reconnect
             except KeyboardInterrupt:
