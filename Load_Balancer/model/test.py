@@ -1,6 +1,6 @@
 import socket
 import threading
-from main_server import Server
+from server import Server
 
 MAX_CLIENTS = 5
 PORT = 446

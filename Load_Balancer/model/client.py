@@ -16,7 +16,7 @@ def main():
                     message = input("Enter a message (or 'exit' to quit): ")
                     
                     if message.lower() == 'exit':
-                        break  # Exit the loop if the user types 'exit'
+                        exit(0)  # Exit the loop if the user types 'exit'
                     
                     client_socket.send(message.encode('utf-8'))
                     response = client_socket.recv(1024).decode('utf-8')
