@@ -5,12 +5,13 @@ import re
 class Server(socket.socket):
 
     #server constructor method as INET ipv4 and TCP socket
-    def __init__(self,port, max_clients, host = 'localhost', users_connected = []):
+    def __init__(self,port, max_clients, host = 'localhost', users_connected = [], is_listening = False):
         super().__init__(socket.AF_INET, socket.SOCK_STREAM)
         self.port = port
         self.max_clients = max_clients
         self.host = host
         self.users_connected = users_connected
+        self.is_listening = is_listening
 
     """
     Getter and Setter methods
@@ -44,6 +45,10 @@ class Server(socket.socket):
     def setUsersConnected(self, new_users_connected):
         self.users_connected = new_users_connected
 
+    # Getter method for is_listening
+    def getIsListening(self):
+        return self.is_listening
+
     # Bind the socket to the host and port from attributes
     def bind(self):
         super().bind((self.host, self.port))
@@ -51,11 +56,12 @@ class Server(socket.socket):
     # Listen for max_clients connections
     def startListening(self):
         super().listen(self.max_clients)
+        self.is_listening = True
 
     # Check if the server is full
     def isFull(self):
         return len(self.users_connected) >= self.max_clients
-
+    
     #check if the ip is valid (ipv4)
     @staticmethod
     def is_ipv4(new_ip):

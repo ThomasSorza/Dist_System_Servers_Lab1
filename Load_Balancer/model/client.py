@@ -5,7 +5,7 @@ def main():
     host = '127.0.0.1'  # Server's IP address or hostname
     port = 446         # Server's port
     tries = 0  # Initialize the number of connection attempts
-    queued = False
+    queued = False #TODO: implementar cola de espera
 
     while tries < 10:  # Continue loop as long as attempts are less than 10
         try:

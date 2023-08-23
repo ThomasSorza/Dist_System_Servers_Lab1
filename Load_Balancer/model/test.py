@@ -1,11 +1,15 @@
 import socket
 import threading
-from server import Server
 import time
+
+from server import Server
 
 MAX_CLIENTS = 5
 PORT = 446
 queue_clients = []
+
+""" def sacar_primero():
+    #sacar primero  """
 
 def handle_client(client_socket):
     try:
@@ -24,18 +28,20 @@ def handle_client(client_socket):
     finally:
         client_socket.close()  # Close the client socket when done
 
-def main(): 
-    server = Server(446, 2)
-    server2 = Server(445, 2)
-    server.bind()
-    server.startListening()
-    print(f"Server listening on port {server}...")
+def start(): 
+    mainServer = Server(446, 2)
+    slave = Server(447, 2)
+    slave.bind()
+    mainServer.bind()
+    mainServer.startListening()
+    print(f"Server listening on port {mainServer}...")
 
     while True:
-        if(not server.isFull()):
+        if(not mainServer.isFull()):
+            # Accept a new connection and handle messages from the client
             try:
-                client_socket, client_address = server.accept()
-                server.getUsersConnected().append(client_socket)
+                client_socket, client_address = mainServer.accept()
+                mainServer.getUsersConnected().append(client_socket)
                 print(f"Connection from: {client_address}")
                 client_socket.send("You are connected to the server.".encode('utf-8'))
                 # Start a new thread to handle the client connection
@@ -45,18 +51,22 @@ def main():
             except KeyboardInterrupt:
                 print("Server shutting down.")
                 break
-        #elif(#is not up):
-            #start server2
-        elif(server.isFull() and not server2.isFull()):
+
+        elif(slave.getIsListening()):
+            slave.startListening()
+            print(f"Slave Server listening on port {slave}...")
+
+        elif(mainServer.isFull() and not slave.isFull()):
             try:
                 # Encolar al cliente en el server 2
                 queue_clients.append(client_socket)
-                print("Server full, adding client to the queue.")
-                # Notificar al cliente que está en espera
-                client_socket.send("Server is full.".encode('utf-8'))
             except:
                 print("Server full")
                 break
+        else:
+            queue_clients.append(client_socket)
+            print("Server full")
+            break
 
 if __name__ == "__main__":
-    main()
+    start()
