@@ -3,10 +3,9 @@ import time
 
 def main():
     host = '127.0.0.1'  # Server's IP address or hostname
-    port = 446      # Server's port
+    port = 447      # Server's port
     tries = 0      
 
-    #max tries to connect to the server (5) 
     while tries < 5:
         try:
             client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -41,7 +40,7 @@ def main():
             except KeyboardInterrupt:
                     print("\nKeyboard Interrupt. Closing client...")
                     break
-    print("It was not possible to connect to Server. Closing client...")
+    print("Connection to the server lost. Closing client...")
 
 if __name__ == "__main__":
     main()

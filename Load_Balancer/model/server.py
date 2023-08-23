@@ -2,7 +2,7 @@ import socket
 import re
 
 #Server class
-class Server(socket.socket):
+class ServerTCP(socket.socket):
 
     #server constructor method as INET ipv4 and TCP socket
     def __init__(self,port, max_clients, host = 'localhost', users_connected = [], is_listening = False):
