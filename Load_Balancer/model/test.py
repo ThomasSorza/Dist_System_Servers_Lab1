@@ -5,6 +5,10 @@ from main_server import Server
 MAX_CLIENTS = 1
 PORT = 446
 
+def getFistclient():
+    return queue_clients.pop(0)
+    
+
 def handle_client(client_socket):
     try:
         while True:
@@ -46,8 +50,26 @@ def main():
                 print("Maximum number of customers reached. Putting the customer on hold.")
                 
 
+<<<<<<< Updated upstream
         except KeyboardInterrupt:
             print("Server shutting down.")
+=======
+        elif(slave.getIsListening()):
+            slave.startListening()
+            print(f"Slave Server listening on port {slave}...")
+
+        elif(mainServer.isFull() and not slave.isFull()):
+            try:
+                # Encolar al cliente en el server 2
+                slave.append(getFistclient)
+
+            except:
+                print("Server full")
+                break
+        else:
+            queue_clients.append(client_socket)
+            print("Server full")
+>>>>>>> Stashed changes
             break
 
 if __name__ == "__main__":
