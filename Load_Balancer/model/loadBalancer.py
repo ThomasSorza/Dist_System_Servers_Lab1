@@ -2,7 +2,6 @@ import threading
 
 from server import ServerTCP as Server
 
-MAX_CLIENTS = 5
 PORT = 446
 queue_clients = []
 
