@@ -24,30 +24,39 @@ def handle_client(client_socket):
     finally:
         client_socket.close()  # Close the client socket when done
 
-def main():
+def main(): 
     server = Server(446, 2)
+    server2 = Server(445, 2)
     server.bind()
     server.startListening()
     print(f"Server listening on port {server}...")
 
     while True:
-        if(len(server.getUsersConnected()) < server.getCapacity()):
+        if(not server.isFull()):
             try:
                 client_socket, client_address = server.accept()
                 server.getUsersConnected().append(client_socket)
                 print(f"Connection from: {client_address}")
-                print(f"Clients connected en server1: {len(server.getUsersConnected())}")
+                client_socket.send("You are connected to the server.".encode('utf-8'))
                 # Start a new thread to handle the client connection
                 server1thread = threading.Thread(target=handle_client, args=(client_socket,))
                 server1thread.start()
-                
 
             except KeyboardInterrupt:
                 print("Server shutting down.")
                 break
-        else:
-            print("Server full")
-            break
+        #elif(#is not up):
+            #start server2
+        elif(server.isFull() and not server2.isFull()):
+            try:
+                # Encolar al cliente en el server 2
+                queue_clients.append(client_socket)
+                print("Server full, adding client to the queue.")
+                # Notificar al cliente que está en espera
+                client_socket.send("Server is full.".encode('utf-8'))
+            except:
+                print("Server full")
+                break
 
 if __name__ == "__main__":
     main()

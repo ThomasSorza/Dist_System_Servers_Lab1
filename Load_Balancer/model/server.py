@@ -52,6 +52,10 @@ class Server(socket.socket):
     def startListening(self):
         super().listen(self.max_clients)
 
+    # Check if the server is full
+    def isFull(self):
+        return len(self.users_connected) >= self.max_clients
+
     #check if the ip is valid (ipv4)
     @staticmethod
     def is_ipv4(new_ip):
