@@ -121,3 +121,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#Edit by Esteban
+LANGUAGE_CODE = 'es'  # Código de idioma español
+DATE_FORMAT = 'd/m/Y'  # Formato de fecha "día/mes/año"
