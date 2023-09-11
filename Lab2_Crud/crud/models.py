@@ -22,7 +22,7 @@ class Users(models.Model):
     phone_number = models.PositiveSmallIntegerField()
     is_active = models.BooleanField(default=True)
     register_date = models.DateTimeField(default=timezone.now)
-    address = models.CharField(max_length=30)
+    address = models.CharField(max_length=60)
     role = models.ForeignKey(Roles, on_delete=models.CASCADE, related_name='users')
 
     def __str__(self):
