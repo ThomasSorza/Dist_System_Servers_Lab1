@@ -9,6 +9,9 @@ class Roles(models.Model):
     create_date = models.DateTimeField(default=timezone.now)
     rol_status = models.BooleanField(default=True)
 
+    def __str__(self) :
+        return self.rol_name
+
 # Define the Users model
 class Users(models.Model):
     first_name = models.CharField(max_length=30)
@@ -21,3 +24,6 @@ class Users(models.Model):
     register_date = models.DateTimeField(default=timezone.now)
     address = models.CharField(max_length=30)
     role = models.ForeignKey(Roles, on_delete=models.CASCADE, related_name='users')
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
