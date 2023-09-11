@@ -11,6 +11,7 @@ class Users(models.Model):
     is_active = models.BooleanField(default=True) #El estado se deja como activo predeterminadamente
     register_date = models.DateTimeField(default=timezone.now) #Establece la fecha actual como predeterminada
     adress = models.CharField(max_length=30)
+    role = models.ForeignKey(Roles, on_delete=models.CASCADE, related_name='users') #ForeignKey para establecer la relación de Users con el modelo Roles
 
 class Roles(models.Model):
     rol_name = models.CharField(max_length=30)
