@@ -19,5 +19,5 @@ from django.urls import path, include # Add include to the import
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('crud.urls')), # Add this line
+    path('', include('crud.urls')), #Added ALL the urls from crud app
 ]

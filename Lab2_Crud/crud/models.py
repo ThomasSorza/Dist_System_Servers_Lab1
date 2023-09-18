@@ -1,8 +1,10 @@
 from django.db import models
 from django.utils import timezone
 
-# Create your models here.
-# Tables created here will be created in the database
+# Create your models here. Tables created here will be created in the database
+
+#Roles models
+#Table Roles
 class Roles(models.Model):
     rol_name = models.CharField(max_length=30)
     description = models.CharField(max_length=30)
@@ -13,6 +15,7 @@ class Roles(models.Model):
         return self.rol_name
 
 # Define the Users model
+#Table Users
 class Users(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
