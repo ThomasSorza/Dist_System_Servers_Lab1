@@ -44,14 +44,15 @@ class CreateMultipleUsers(APIView):
             return Response({"non_field_errors": ["Se esperaba una lista de objetos JSON."]}, status=status.HTTP_400_BAD_REQUEST)
 
         users_created = []
-
+        response = None #TODO: manage response
         for user_data in users_data:
             serializer = UsersSerializer(data=user_data)
             if serializer.is_valid():
+                response = Response(users_created, status=status.HTTP_201_CREATED)
                 serializer.save()
                 users_created.append(serializer.data)
 
-        return Response(users_created, status=status.HTTP_201_CREATED)
+        return response
 
 #PUT requests
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
