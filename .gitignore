@@ -15,6 +15,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+Scripts/
 lib64/
 parts/
 sdist/
@@ -152,6 +153,11 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+# Executable Files
+*.exe
+*.bat
+*.ps1
+*.cfg
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
