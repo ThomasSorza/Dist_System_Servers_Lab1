@@ -20,7 +20,7 @@ class Users(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     type_document = models.CharField(max_length=20)
-    document = models.PositiveSmallIntegerField()
+    document = models.PositiveSmallIntegerField() #TODO: add unique
     birthday = models.DateField()
     phone_number = models.PositiveSmallIntegerField()
     is_active = models.BooleanField(default=True)
