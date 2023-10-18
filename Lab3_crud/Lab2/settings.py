@@ -9,13 +9,20 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+DEFAULT_FILE_STORAGE = 'storages.backends.azure_storage.AzureStorage'
+AZURE_ACCOUNT_NAME = "azusersimages16"
+AZURE_ACCOUNT_KEY = "hkhJiSNAo9yQSw71+MRpVuXYxhvJUL6ULIrDaxG4oxfgTbkk2kUanM+cLylDQSApYIJRHQr4BCra+ASthgvKAw=="
+AZURE_CONNECTION_STRING = "DefaultEndpointsProtocol=https;AccountName=azusersimages16;AccountKey=eNh3jhD0k+HT1ddOUdBjV21owNgm/Q7I33c0InrRoD0zGU0hnh21X1yNYKYubKPpgC4Dwa7vX/QZ+ASt+fH5LA==;EndpointSuffix=core.windows.net"
+AZURE_CONTAINER = "images1az"
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
@@ -136,3 +143,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
 #    'PAGE_SIZE': 100
 #}
+
