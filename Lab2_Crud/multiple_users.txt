@@ -1,0 +1,122 @@
+[
+    {
+        "first_name": "John",
+        "last_name": "Doe",
+        "type_document": "DNI",
+        "document": 12345678,
+        "birthday": "1985-05-10",
+        "phone_number": 5551234567,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "123 Main Street",
+        "role": 1
+    },
+    {
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "type_document": "DNI",
+        "document": 98765432,
+        "birthday": "1990-03-15",
+        "phone_number": 5559876543,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "456 Elm Avenue",
+        "role": 2
+    },
+    {
+        "first_name": "David",
+        "last_name": "Johnson",
+        "type_document": "DNI",
+        "document": 56473829,
+        "birthday": "1988-09-22",
+        "phone_number": 5555647382,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "789 Oak Street",
+        "role": 3
+    },
+    {
+        "first_name": "Emily",
+        "last_name": "Davis",
+        "type_document": "DNI",
+        "document": 87654321,
+        "birthday": "1995-11-08",
+        "phone_number": 5558765432,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "101 Pine Road",
+        "role": 4
+    },
+    {
+        "first_name": "Michael",
+        "last_name": "Wilson",
+        "type_document": "DNI",
+        "document": 43218765,
+        "birthday": "1977-07-17",
+        "phone_number": 5554321876,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "222 Cedar Lane",
+        "role": 5
+    },
+    {
+        "first_name": "Olivia",
+        "last_name": "Brown",
+        "type_document": "DNI",
+        "document": 98765431,
+        "birthday": "1982-02-28",
+        "phone_number": 5559876540,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "333 Willow Avenue",
+        "role": 6
+    },
+    {
+        "first_name": "William",
+        "last_name": "Martinez",
+        "type_document": "DNI",
+        "document": 98761234,
+        "birthday": "1999-12-01",
+        "phone_number": 5559876123,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "444 Birch Street",
+        "role": 7
+    },
+    {
+        "first_name": "Sophia",
+        "last_name": "Lee",
+        "type_document": "DNI",
+        "document": 12349876,
+        "birthday": "1991-04-19",
+        "phone_number": 5551234987,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "555 Maple Road",
+        "role": 8
+    },
+    {
+        "first_name": "James",
+        "last_name": "Gonzalez",
+        "type_document": "DNI",
+        "document": 99999999,
+        "birthday": "1980-08-03",
+        "phone_number": 5550000000,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "666 Redwood Lane",
+        "role": 9
+    },
+    {
+        "first_name": "Ava",
+        "last_name": "Rodriguez",
+        "type_document": "DNI",
+        "document": 55555555,
+        "birthday": "1993-06-25",
+        "phone_number": 5555555555,
+        "is_active": true,
+        "register_date": "2023-09-18T12:00:00Z",
+        "address": "777 Cedar Street",
+        "role": 10
+    }
+]
