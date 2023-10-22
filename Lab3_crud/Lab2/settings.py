@@ -46,7 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'corsheaders'
+    'corsheaders', #added for CORS
+    
+    'rest_framework.authtoken', #added for JWT
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -63,6 +66,31 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
 ]
+
+# Configuración de JWT
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+}
+
+from datetime import timedelta
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=60),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    'SLIDING_TOKEN_LIFETIME': timedelta(days=30),
+    'SLIDING_TOKEN_REFRESH_LIFETIME_ALLOW_RENEWAL': True,
+    'SLIDING_TOKEN_LIFETIME_ALLOW_RENEWAL': False,
+    'SLIDING_TOKEN_REFRESH_LIFETIME_ALLOW_RENEWAL': True,
+    'ROTATE_REFRESH_TOKENS': False,
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+}
+
+# Configuración de JWT
 
 ROOT_URLCONF = 'Lab2.urls'
 
