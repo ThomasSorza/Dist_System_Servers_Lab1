@@ -44,6 +44,47 @@ def login(request):
         # Si no se encuentra un usuario, responder con un mensaje de error y código 401 (No autorizado)
         return Response({'error': 'Usuario no encontrado'}, status=status.HTTP_401_UNAUTHORIZED)
 
+#Filtering------------------
+from django.core.paginator import Paginator
+from django.http import JsonResponse
+
+def filtering_results(request, text_to_search):
+    try:
+        filtered_users = Users.objects.filter(
+            first_name__icontains=text_to_search
+        ) | Users.objects.filter(
+            last_name__icontains=text_to_search
+        ) | Users.objects.filter(
+            type_document__icontains=text_to_search
+        ) | Users.objects.filter(
+            document__icontains=text_to_search
+        ) | Users.objects.filter(
+            birthday_icontains=text_to_search
+        ) | Users.objects.filter(
+            phone_number__icontains=text_to_search
+        ) | Users.objects.filter(
+            address__icontains=text_to_search
+        )
+
+        serialized_users = [{
+            'id': user.id,
+            'first_name': user.first_name,
+            'last_name': user.last_name,
+            'type_document': user.type_document,
+            'document': user.document,
+            'birthday': user.birthday.strftime('%Y-%m-%d'),
+            'phone_number': user.phone_number,
+            'is_active': user.is_active,
+            'register_date': user.register_date.strftime('%Y-%m-%d %H:%M:%S'),
+            'address': user.address,
+            'role': user.role.rol_name if user.role else None,
+            'password': user.password,
+            'user_image': user.user_image,
+        } for user in filtered_users]
+        
+    except Users.DoesNotExist:
+        return JsonResponse({'message': 'Usuario no encontrado'}, status=404)
+
 '''
 @api_view(['POST'])
 def login(request):
